@@ -23,12 +23,14 @@
   },
   "private": true,
   "dependencies": {
+    "pixi.js": "^4.8.1",
     "s-array": "^0.4.10",
     "s-js": "^0.4.9",
     "surplus": "^0.5.3",
     "surplus-mixin-data": "^0.5.0"
   },
   "devDependencies": {
+    "@types/pixi.js": "^4.8.0",
     "surplus-loader": "^0.5.0",
     "ts-loader": "^2.3.7",
     "typescript": "3.0.1",

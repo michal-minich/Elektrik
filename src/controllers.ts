@@ -1,4 +1,5 @@
 ﻿import S from "s-js";
+import * as PIXI from "pixi.js";
 
 
 export interface ITestController {
@@ -14,8 +15,13 @@ export class TestController implements ITestController
         counter: S.data(0)
     };
 
-    updateText(text: string): void {
-        S(() => this.model.text(text));
+    public pixText?: PIXI.Text = undefined;
+    public pixApp?: PIXI.Application = undefined;
+
+    updateText(): void {
+        //S(() => this.model.text(text));
+        if (this.pixText)
+            this.pixText.text = this.model.text();
     }
 
     incrementCounter(): void {

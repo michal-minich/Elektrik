@@ -3,9 +3,10 @@ import data from "surplus-mixin-data";
 
 import { TestController } from "./controllers";
 
+
 export const AppView = (ctrl: TestController) =>
     <div>
-        <input type="text" fn={data(ctrl.model.text)} />
+        <input type="text" fn={data(ctrl.model.text)} onKeyDown={() => ctrl.updateText()}/>
         <br />
         <span>{ctrl.model.text() + " " + ctrl.model.counter()}</span>
         <br/>

@@ -1,0 +1,10 @@
+.vs/
+node_modules/
+scripts/*.js*
+bin/
+obj/
+*.user
+packages/
+src/*.js
+src/*.jsx
+package-lock.json

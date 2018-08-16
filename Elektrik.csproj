@@ -85,8 +85,11 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="index.html" />
+    <Content Include="scripts\main.js" />
     <Content Include="styles\main.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>

@@ -4,22 +4,35 @@ import { TestController } from "./controllers";
 
 
 export function doPix(ctrl: TestController) {
-    
-    var app = new PIXI.Application(640, 360, { backgroundColor: 0x1099bb });
+
+    const appOptions = {
+        backgroundColor: 0xffffff,
+        resolution: 1
+    };
+    const app = new PIXI.Application(640, 640, appOptions);
     document.body.appendChild(app.view);
-    var circle = new PIXI.Graphics();
-    circle.beginFill(0x5cafe2);
-    circle.drawCircle(0, 0, 80);
-    circle.x = 320;
-    circle.y = 180;
-    app.stage.addChild(circle);
-
-    var basicText = new PIXI.Text('Basic text in pixi');
-    basicText.x = 30;
-    basicText.y = 90;
-
-    app.stage.addChild(basicText);
-
-    ctrl.pixText = basicText;
     ctrl.pixApp = app;
+    
+    const textStyle = new PIXI.TextStyle({
+        fontFamily: "Consolas",
+        fontSize: 12,
+    });
+
+    const label = ctrl.model.text();
+    const textMetrics = PIXI.TextMetrics.measureText(label, textStyle);
+
+    const g = new PIXI.Graphics();
+    g.beginFill(0xeeeeee);
+    g.lineStyle(1, 0x000000);
+    g.drawRect(0, 0, textMetrics.width + 10, textMetrics.height + 10);
+    g.x = 0;
+    g.y = 0;
+    app.stage.addChild(g);
+    ctrl.pixGraphics = g;
+
+   const text = new PIXI.Text(label, textStyle);
+    text.x = 12;
+    text.y = 12;
+    g.addChild(text);
+    ctrl.pixText = text;
 }
